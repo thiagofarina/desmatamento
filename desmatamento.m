@@ -47,7 +47,10 @@ function imgSaida = CalculaDesmatamento(imgEntrada)
   numColunas = columns(imgEntrada);
 
   imgConvertida = rgb2hsv(imgEntrada);
+  colormap(hsv(64));
+
   imgSaida = zeros(size(imagemEntrada));
+  colormap(gray(64));
 
   areaDesmatada = 0;
 
@@ -63,4 +66,7 @@ function imgSaida = CalculaDesmatamento(imgEntrada)
       endif;
     endfor
   endfor
+
+  printf("Área Desmatada: %d", areaDesmatada);
+  colormap(gray(64));
 endfunction;
