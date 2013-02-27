@@ -52,6 +52,8 @@ function imgSaida = CalculaDesmatamento(imgEntrada)
   numLinhas = rows(imgEntrada);
   numColunas = columns(imgEntrada);
 
+  imgConvertida = rgb2hsv(imgEntrada);
+
   for linha = 1 : numLinhas
     for coluna = 1 : numColunas
     endfor
