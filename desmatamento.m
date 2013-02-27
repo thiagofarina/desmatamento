@@ -1,15 +1,28 @@
+% Instruções:
+%
+% $ octave
+% octave> source("desmatamento.m");
+% octave> img = imread("imagemTrab2.jpg");
+% octave> img1 = CalculaDesmatamento(img);
+% Output das variáveis:
+% .....
+% octave> imwrite(img1, "areaVerde.jpg");
+%
+
+% Parametros:
+% ImgEntrada:
+% ImgSaida:
+%
+
 caminhoImagemEntrada = "imagemTrab2.jpg";
-
-% ler imagem de entrada
 imagemEntrada = imread(caminhoImagemEntrada);
-imConvertida = rgb2hsv(imagemEntrada);
 
+imConvertida = rgb2hsv(imagemEntrada);
 colormap(hsv(64));
 
 % recuperar o tamanho da imagem
-tamanho = iminfo("imagemTrab2.jpg");
-nrLinhas = tamanho(1);
-nrColunas = tamanho(2);
+nrLinhas = rows(imagemEntrada);
+nrColunas = columns(imagemEntrada);
 
 imagemSaida = zeros(size(imConvertida));
 imagemVerde = zeros(size(imagemEntrada));
@@ -35,4 +48,3 @@ printf("Área Desmatada: %d", areaDesmatada);
 map = gray(64);
 colormap(map);
 imwrite(imagemVerde, "areaVerde.jpg");
-imshow(ind2gray(imagemVerde));
