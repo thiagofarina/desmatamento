@@ -2,17 +2,9 @@
 %
 % $ octave
 % octave> source("desmatamento.m");
-% octave> img = imread("imagemTrab2.jpg");
-% octave> img1 = CalculaDesmatamento(img);
-% Output das variáveis:
-% .....
+% octave> imgEntrada = imread("imagemTrab2.jpg");
+% octave> imgSaida = CalculaDesmatamento(img);
 % octave> imwrite(img1, "areaVerde.jpg");
-%
-
-% Parametros:
-% ImgEntrada:
-% ImgSaida:
-%
 
 caminhoImagemEntrada = "imagemTrab2.jpg";
 imagemEntrada = imread(caminhoImagemEntrada);
@@ -20,16 +12,14 @@ imagemEntrada = imread(caminhoImagemEntrada);
 imConvertida = rgb2hsv(imagemEntrada);
 colormap(hsv(64));
 
-% recuperar o tamanho da imagem
 nrLinhas = rows(imagemEntrada);
 nrColunas = columns(imagemEntrada);
 
 imagemVerde = zeros(size(imagemEntrada));
-map = gray(64);
-colormap(map);
+colormap(gray(64));
 areaDesmatada = 0;
 
-% para cada pixel da imagem
+% Para cada pixel da imagem.
 for v = 1 : nrLinhas
   for w = 1 : nrColunas
     % comparar com o valor do desmatamento de acordo com o angulo
@@ -44,10 +34,13 @@ for v = 1 : nrLinhas
 endfor;
 
 printf("Área Desmatada: %d", areaDesmatada);
-map = gray(64);
-colormap(map);
+colormap(gray(64));
 imwrite(imagemVerde, "areaVerde.jpg");
 
+% Parametros:
+% ImgEntrada:
+% ImgSaida:
+%
 function imgSaida = CalculaDesmatamento(imgEntrada)
   numLinhas = rows(imgEntrada);
   numColunas = columns(imgEntrada);
