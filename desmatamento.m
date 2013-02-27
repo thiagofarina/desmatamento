@@ -14,7 +14,7 @@ numColunas = columns(imgEntrada);
 imgConvertida = rgb2hsv(imgEntrada);
 colormap(hsv(64));
 
-imagemSaida = zeros(size(imgEntrada));
+imgSaida = zeros(size(imgEntrada));
 colormap(gray(64));
 
 areaDesmatada = 0;
@@ -28,7 +28,7 @@ for linha = 1 : numLinhas
         (imgConvertida(linha, coluna) > 0.4))
       areaDesmatada = areaDesmatada(1) + 90;
     else
-      imagemSaida(linha, coluna) = 1;
+      imgSaida(linha, coluna) = 1;
     endif;
   endfor;
 endfor;
@@ -36,11 +36,11 @@ endfor;
 printf("Área Desmatada: %d", areaDesmatada);
 colormap(gray(64));
 
-imwrite(imagemSaida, "areaVerde.jpg");
+imwrite(imgSaida, "areaVerde.jpg");
 
 % Parametros:
-% ImgEntrada:
-% ImgSaida:
+% imgEntrada:
+% imgSaida:
 %
 function imgSaida = CalculaDesmatamento(imgEntrada)
   numLinhas = rows(imgEntrada);
