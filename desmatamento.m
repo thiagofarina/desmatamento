@@ -14,7 +14,7 @@ colormap(hsv(64));
 nrLinhas = rows(imagemEntrada);
 nrColunas = columns(imagemEntrada);
 
-imagemVerde = zeros(size(imagemEntrada));
+imagemSaida = zeros(size(imagemEntrada));
 colormap(gray(64));
 areaDesmatada = 0;
 
@@ -27,14 +27,14 @@ for v = 1 : nrLinhas
     % area desmatada.
       areaDesmatada = areaDesmatada(1) + 90;
     else
-      imagemVerde(v, w) = 1;
+      imagemSaida(v, w) = 1;
     endif;
   endfor;
 endfor;
 
 printf("Área Desmatada: %d", areaDesmatada);
 colormap(gray(64));
-imwrite(imagemVerde, "areaVerde.jpg");
+imwrite(imagemSaida, "areaVerde.jpg");
 
 % Parametros:
 % ImgEntrada:
