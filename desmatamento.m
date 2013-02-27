@@ -24,7 +24,6 @@ colormap(hsv(64));
 nrLinhas = rows(imagemEntrada);
 nrColunas = columns(imagemEntrada);
 
-imagemSaida = zeros(size(imConvertida));
 imagemVerde = zeros(size(imagemEntrada));
 map = gray(64);
 colormap(map);
