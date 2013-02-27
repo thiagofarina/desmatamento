@@ -2,12 +2,13 @@
 %
 % $ octave
 % octave> source("desmatamento.m");
-% octave> imgEntrada = imread("imagemTrab2.jpg");
+% octave> imgEntrada = imread("caminho/para/a/imagem.jpg");
 % octave> imgSaida = CalculaDesmatamento(img);
-% octave> imwrite(img1, "areaVerde.jpg");
+% octave> imwrite(imgSaida, "caminho/para/salvar/a/imagem.jpg");
 
 imgEntrada = imread("imagemTrab2.jpg");
 
+% ALGORITMO BEGIN
 numLinhas = rows(imgEntrada);
 numColunas = columns(imgEntrada);
 
@@ -35,6 +36,8 @@ endfor;
 
 printf("Área Desmatada: %d", areaDesmatada);
 colormap(gray(64));
+
+% ALGORITMO END
 
 imwrite(imgSaida, "areaVerde.jpg");
 
