@@ -6,15 +6,15 @@
 % octave> imgSaida = CalculaDesmatamento(img);
 % octave> imwrite(img1, "areaVerde.jpg");
 
-imagemEntrada = imread("imagemTrab2.jpg");
+imgEntrada = imread("imagemTrab2.jpg");
 
-numLinhas = rows(imagemEntrada);
-numColunas = columns(imagemEntrada);
+numLinhas = rows(imgEntrada);
+numColunas = columns(imgEntrada);
 
-imgConvertida = rgb2hsv(imagemEntrada);
+imgConvertida = rgb2hsv(imgEntrada);
 colormap(hsv(64));
 
-imagemSaida = zeros(size(imagemEntrada));
+imagemSaida = zeros(size(imgEntrada));
 colormap(gray(64));
 
 areaDesmatada = 0;
@@ -49,7 +49,7 @@ function imgSaida = CalculaDesmatamento(imgEntrada)
   imgConvertida = rgb2hsv(imgEntrada);
   colormap(hsv(64));
 
-  imgSaida = zeros(size(imagemEntrada));
+  imgSaida = zeros(size(imgEntrada));
   colormap(gray(64));
 
   areaDesmatada = 0;
