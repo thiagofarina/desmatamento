@@ -1,4 +1,13 @@
-% Instruções:
+% Autor: Gustavo da Silva Rodrigues
+% Matrícula: 200810193211
+
+% Objetivo:
+% Este trabalho tem por meta apresentar os pixels que representam uma area de
+% desmatamento.
+% Após o script ser executado, tais pixels que representam estas áreas serão
+% exibidos em uma tonalidade mais escura (negro).
+
+% Instruções (como executar o script):
 %
 % $ octave
 % octave> source("desmatamento.m");
@@ -6,7 +15,7 @@
 % octave> imgSaida = CalculaDesmatamento(img);
 % octave> imwrite(imgSaida, "caminho/para/salvar/a/imagem.jpg");
 
-% Parametros:
+% Parâmetros:
 % imgEntrada: imagem do satélite Landsat.
 % imgSaida: imagem com os pixels correspondentes ao desmatamento.
 %
