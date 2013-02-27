@@ -47,3 +47,13 @@ printf("Área Desmatada: %d", areaDesmatada);
 map = gray(64);
 colormap(map);
 imwrite(imagemVerde, "areaVerde.jpg");
+
+function imgSaida = CalculaDesmatamento(imgEntrada)
+  numLinhas = rows(imgEntrada);
+  numColunas = columns(imgEntrada);
+
+  for linha = 1 : numLinhas
+    for coluna = 1 : numColunas
+    endfor
+  endfor
+endfunction;
