@@ -6,8 +6,7 @@
 % octave> imgSaida = CalculaDesmatamento(img);
 % octave> imwrite(img1, "areaVerde.jpg");
 
-caminhoImagemEntrada = "imagemTrab2.jpg";
-imagemEntrada = imread(caminhoImagemEntrada);
+imagemEntrada = imread("imagemTrab2.jpg");
 
 imConvertida = rgb2hsv(imagemEntrada);
 colormap(hsv(64));
