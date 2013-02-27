@@ -8,14 +8,15 @@
 
 imagemEntrada = imread("imagemTrab2.jpg");
 
-imgConvertida = rgb2hsv(imagemEntrada);
-colormap(hsv(64));
-
 numLinhas = rows(imagemEntrada);
 numColunas = columns(imagemEntrada);
 
+imgConvertida = rgb2hsv(imagemEntrada);
+colormap(hsv(64));
+
 imagemSaida = zeros(size(imagemEntrada));
 colormap(gray(64));
+
 areaDesmatada = 0;
 
 % Para cada pixel da imagem.
@@ -34,6 +35,7 @@ endfor;
 
 printf("Área Desmatada: %d", areaDesmatada);
 colormap(gray(64));
+
 imwrite(imagemSaida, "areaVerde.jpg");
 
 % Parametros:
