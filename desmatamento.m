@@ -8,8 +8,8 @@ colormap(hsv(64));
 
 % recuperar o tamanho da imagem
 tamanho = iminfo("imagemTrab2.jpg");
-nrLinhas = ndim(imagemEntrada)
-nrColunas = tamanho(2)
+nrLinhas = tamanho(1);
+nrColunas = tamanho(2);
 
 imagemSaida = zeros(size(imConvertida));
 imagemVerde = zeros(size(imagemEntrada));
