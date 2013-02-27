@@ -7,8 +7,8 @@
 % octave> imwrite(imgSaida, "caminho/para/salvar/a/imagem.jpg");
 
 % Parametros:
-% imgEntrada:
-% imgSaida:
+% imgEntrada: imagem do satélite Landsat.
+% imgSaida: imagem com os pixels correspondentes ao desmatamento.
 %
 function imgSaida = CalculaDesmatamento(imgEntrada)
   numLinhas = rows(imgEntrada);
