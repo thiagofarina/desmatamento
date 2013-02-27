@@ -11,23 +11,23 @@ imagemEntrada = imread("imagemTrab2.jpg");
 imConvertida = rgb2hsv(imagemEntrada);
 colormap(hsv(64));
 
-nrLinhas = rows(imagemEntrada);
-nrColunas = columns(imagemEntrada);
+numLinhas = rows(imagemEntrada);
+numColunas = columns(imagemEntrada);
 
 imagemSaida = zeros(size(imagemEntrada));
 colormap(gray(64));
 areaDesmatada = 0;
 
 % Para cada pixel da imagem.
-for v = 1 : nrLinhas
-  for w = 1 : nrColunas
+for linha = 1 : numLinhas
+  for coluna = 1 : numColunas
     % comparar com o valor do desmatamento de acordo com o angulo
     % hue(primeira dimensão do hsv) se for igual somar 90 m²
-    if ((imConvertida(v, w) < 0.2) || (imConvertida(v, w) > 0.4))
-    % area desmatada.
+    if ((imConvertida(linha, coluna) < 0.2) ||
+        (imConvertida(linha, coluna) > 0.4))
       areaDesmatada = areaDesmatada(1) + 90;
     else
-      imagemSaida(v, w) = 1;
+      imagemSaida(linha, coluna) = 1;
     endif;
   endfor;
 endfor;
