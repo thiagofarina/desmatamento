@@ -15,26 +15,27 @@ function imgSaida = CalculaDesmatamento(imgEntrada)
   numColunas = columns(imgEntrada);
 
   imgConvertida = rgb2hsv(imgEntrada);
-  colormap(hsv(64));
-
   imgSaida = zeros(size(imgEntrada));
-  colormap(gray(64));
-
-  areaDesmatada = 0;
 
   for linha = 1 : numLinhas
     for coluna = 1 : numColunas
-      % Compara com o valor do desmatamento de acordo com o angulo
-      % hue(primeira dimensão do hsv) se for igual somar 90 m².
-      if ((imgConvertida(linha, coluna) < 0.2) ||
-          (imgConvertida(linha, coluna) > 0.4))
-        areaDesmatada = areaDesmatada(1) + 90;
-      else
-        imgSaida(linha, coluna) = 1;
-      endif;
+      H(1) = imgConvertida(linha, coluna, 1);
+      S(2) = imgConvertida(linha, coluna, 2);
+      V(3) = imgConvertida(linha, coluna, 3);
+
+      if ((H(1) > 0.40300) && (H(1) < 0.51000))
+        imgSaida(linha, coluna, 2) = 255;
+        imgSaida(linha, coluna, 3) = 255;
+      endif
+
+      if ((H(1) > 0.900000) && (H(1) < 0.963110))
+        if (S(2) > 0.5020000)
+          if (V(3) > 0.75686)
+            imgSaida(linha, coluna, 1) = 255;
+            imgSaida(linha, coluna, 3) = 255;
+          endif
+        endif
+      endif
     endfor
   endfor
-
-  printf("Área Desmatada: %d\n", areaDesmatada);
-  colormap(gray(64));
 endfunction;
